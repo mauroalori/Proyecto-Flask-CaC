@@ -41,12 +41,11 @@
           </div>
           <div class="mb-3">
             <label for="tiempo">Tiempo</label>
-            <input type="time" name="tiempo" id="tiempo" v-model="tiempo" />
+            <input type="time" name="tiempo" id="tiempo" step="1" v-model="tiempo" />
           </div>
           <div class="mb-3">
             <label for="ciudad">Ciudad</label>
             <input type="text" name="ciudad" id="ciudad" v-model="ciudad" />
-            <!-- <img width="100" :src="imagen" alt=""> -->
           </div>
 
           <button type="button" class="btn btn-success" v-on:click="grabar()">
