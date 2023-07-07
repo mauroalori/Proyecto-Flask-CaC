@@ -10,7 +10,7 @@ createApp({
       apellido: "",
       ciudad: "",
       tiempo: 0,
-      url: "http://localhost:5000/corredores/" + id,
+      url: "https://mauroalori.pythonanywhere.com/corredores/" + id,
     };
   },
   methods: {

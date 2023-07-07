@@ -3,9 +3,9 @@ createApp({
   data() {
     return {
       corredores: [],
-      url: "http://localhost:5000/corredores",
+      //url: "http://localhost:5000/corredores",
       // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
-      //url:'http://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
+      url:'https://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
       error: false,
       cargando: true,
       /*atributos para el guardar los valores del formulario */
