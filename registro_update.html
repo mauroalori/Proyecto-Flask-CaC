@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Producto Nuevo</title>
+    <title>Nuevo Registro</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -29,8 +29,8 @@
             padding: 20px;
           "
         >
-          <h2>Editar Producto</h2>
-          <p>Precio:{{precio}}</p>
+          <h2>Editar Registro</h2>
+          <p>Apellido:{{apellido}}</p>
           <div class="mb-3">
             <label for="id">Id</label>
             <input type="number" name="id" id="id" disabled v-model="id" />
@@ -40,17 +40,17 @@
             <input type="text" name="nombre" id="nombre" v-model="nombre" />
           </div>
           <div class="mb-3">
-            <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" v-model="precio" />
+            <label for="precio">Apellido</label>
+            <input type="text" name="apellido" id="apellido" v-model="apellido" />
           </div>
           <div class="mb-3">
-            <label for="stock">Stock</label>
-            <input type="number" name="stock" id="stock" v-model="stock" />
+            <label for="stock">Tiempo</label>
+            <input type="time" name="tiempo" id="tiempo" v-model="tiempo" />
           </div>
           <div class="mb-3">
-            <label for="imagen">Imagen</label>
-            <input type="text" name="imagen" id="imagen" v-model="imagen" />
-            <img width="100" :src="imagen" alt="" />
+            <label for="imagen">Ciudad</label>
+            <input type="text" name="ciudad" id="ciudad" v-model="ciudad" />
+            <!-- <img width="100" :src="imagen" alt="" /> -->
           </div>
           <button
             type="button"

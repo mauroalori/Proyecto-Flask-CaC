@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Maratón CaC</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -20,9 +20,9 @@
     </header>
     <main>
       <div id="app" class="container">
-        <h1>Productos</h1>
+        <h3><u>Maratón Codo a Codo</u></h3>
         <br />
-        <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
+        <a class="btn btn-primary" href="registro_nuevo.html">Nuevo</a>
         <br /><br />
         <div v-if="error">
           <p>Lo sentimos , ........</p>
@@ -40,25 +40,25 @@
                     <th scope="col">Orden de llegada</th>
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Imagen</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Tiempo</th>
+                    <th scope="col">Ciudad</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="" v-for="(producto,index) in productos">
+                  <tr class="" v-for="(registro,index) in registros">
                     <td>{{index+1}}</td>
-                    <td scope="row">{{producto.id}}</td>
-                    <td>{{producto.nombre}}</td>
-                    <td>{{producto.precio}}</td>
-                    <td>{{producto.stock}}</td>
+                    <td scope="row">{{registro.id}}</td>
+                    <td>{{registro.nombre}}</td>
+                    <td>{{registro.apellido}}</td>
+                    <td>{{registro.tiempo}}</td>
                     <td>
-                      <img
+                      <!-- <img
                         width="60"
                         :src="producto.imagen"
                         :alt="producto.nombre"
-                      />
+                      /> -->
                     </td>
                     <td>
                       <a
@@ -101,6 +101,6 @@
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!--Link de VUE-->
-    <script src="js/productos.js"></script>
+    <script src="js/registros.js"></script>
   </body>
 </html>

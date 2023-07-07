@@ -21,9 +21,9 @@ createApp({
           console.log(data);
           this.id = data.id;
           this.nombre = data.nombre;
-          this.imagen = data.imagen;
-          this.stock = data.stock;
-          this.precio = data.precio;
+          this.ciudad = data.ciudad;
+          this.apellido = data.apellido;
+          this.tiempo = data.tiempo;
         })
         .catch((err) => {
           console.error(err);
@@ -33,12 +33,12 @@ createApp({
     modificar() {
       let producto = {
         nombre: this.nombre,
-        precio: this.precio,
-        stock: this.stock,
-        imagen: this.imagen,
+        apellido: this.apellido,
+        tiempo: this.tiempo,
+        ciudad: this.ciudad,
       };
       var options = {
-        body: JSON.stringify(producto),
+        body: JSON.stringify(registro),
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         redirect: "follow",

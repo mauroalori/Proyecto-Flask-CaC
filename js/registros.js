@@ -2,7 +2,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      productos: [],
+      registros: [],
       url: "http://localhost:5000/productos",
       // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
       //url:'http://mauroalori.pythonanywhere.com/productos', // si ya lo subieron a pythonanywhere
@@ -21,8 +21,8 @@ createApp({
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          this.productos = data;
-          this.ordenarProductosPorPrecioAsc();
+          this.registros = data;
+          this.ordenarRegistrosPorTiempoAsc();
           this.cargando = false;
         })
         .catch((err) => {
@@ -30,19 +30,19 @@ createApp({
           this.error = true;
         });
     },
-    ordenarProductosPorPrecioAsc() {
-      this.productos = this.productos.sort(function (prod1, prod2) {
-        if (prod1.precio > prod2.precio) {
+    ordenarRegistrosPorTiempoAsc() {
+      this.registros = this.registros.sort(function (regi1, regi2) {
+        if (regi1.tiempo > regi2.tiempo) {
           return 1;
         }
-        if (prod1.precio < prod2.precio) {
+        if (regi1.tiempo < regi2.tiempo) {
           return -1;
         }
         return 0;
       });
     },
-    eliminar(producto) {
-      const url = this.url + "/" + producto;
+    eliminar(registro) {
+      const url = this.url + "/" + registro;
       var options = {
         method: "DELETE",
       };
@@ -55,12 +55,12 @@ createApp({
     grabar() {
       let producto = {
         nombre: this.nombre,
-        precio: this.precio,
-        stock: this.stock,
-        imagen: this.imagen,
+        apellido: this.apellido,
+        tiempo: this.tiempo,
+        ciudad: this.ciudad,
       };
       var options = {
-        body: JSON.stringify(producto),
+        body: JSON.stringify(registro),
         method: "POST",
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
