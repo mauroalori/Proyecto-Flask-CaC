@@ -2,18 +2,18 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      registros: [],
-      url: "http://localhost:5000/productos",
+      corredores: [],
+      url: "http://localhost:5000/corredores",
       // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
-      //url:'http://mauroalori.pythonanywhere.com/productos', // si ya lo subieron a pythonanywhere
+      //url:'http://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
       error: false,
       cargando: true,
       /*atributos para el guardar los valores del formulario */
       id: 0,
       nombre: "",
-      imagen: "",
-      stock: 0,
-      precio: 0,
+      apellido: "",
+      ciudad: "",
+      tiempo: 0,
     };
   },
   methods: {
@@ -21,8 +21,8 @@ createApp({
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          this.registros = data;
-          this.ordenarRegistrosPorTiempoAsc();
+          this.corredores = data;
+          this.ordenarCorredoresPorTiempoAsc();
           this.cargando = false;
         })
         .catch((err) => {
@@ -30,19 +30,19 @@ createApp({
           this.error = true;
         });
     },
-    ordenarRegistrosPorTiempoAsc() {
-      this.registros = this.registros.sort(function (regi1, regi2) {
-        if (regi1.tiempo > regi2.tiempo) {
+    ordenarCorredoresPorTiempoAsc() {
+      this.corredores = this.corredores.sort(function (corredor1, corredor2) {
+        if (corredor1.tiempo > corredor2.tiempo) {
           return 1;
         }
-        if (regi1.tiempo < regi2.tiempo) {
+        if (corredor1.tiempo < corredor2.tiempo) {
           return -1;
         }
         return 0;
       });
     },
-    eliminar(registro) {
-      const url = this.url + "/" + registro;
+    eliminar(corredor) {
+      const url = this.url + "/" + corredor;
       var options = {
         method: "DELETE",
       };
@@ -53,21 +53,21 @@ createApp({
         });
     },
     grabar() {
-      let producto = {
+      let corredor = {
         nombre: this.nombre,
         apellido: this.apellido,
         tiempo: this.tiempo,
         ciudad: this.ciudad,
       };
       var options = {
-        body: JSON.stringify(registro),
+        body: JSON.stringify(corredor),
         method: "POST",
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
       };
       fetch(this.url, options)
         .then(function () {
-          alert("Registro grabado");
+          alert("Corredor grabado");
           window.location.href = "index.html";
         })
         .catch((err) => {

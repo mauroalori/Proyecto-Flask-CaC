@@ -7,10 +7,10 @@ createApp({
     return {
       id: 0,
       nombre: "",
-      imagen: "",
-      stock: 0,
-      precio: 0,
-      url: "http://localhost:5000/productos/" + id,
+      apellido: "",
+      ciudad: "",
+      tiempo: 0,
+      url: "http://localhost:5000/corredores/" + id,
     };
   },
   methods: {
@@ -31,14 +31,14 @@ createApp({
         });
     },
     modificar() {
-      let producto = {
+      let corredor = {
         nombre: this.nombre,
         apellido: this.apellido,
         tiempo: this.tiempo,
         ciudad: this.ciudad,
       };
       var options = {
-        body: JSON.stringify(registro),
+        body: JSON.stringify(corredor),
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         redirect: "follow",

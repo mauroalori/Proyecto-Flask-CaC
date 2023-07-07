@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nuevo Registro</title>
+    <title>Editar Corredor</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -29,7 +29,7 @@
             padding: 20px;
           "
         >
-          <h2>Editar Registro</h2>
+          <h2>Editar Corredor</h2>
           <p>Apellido:{{apellido}}</p>
           <div class="mb-3">
             <label for="id">Id</label>
@@ -40,17 +40,16 @@
             <input type="text" name="nombre" id="nombre" v-model="nombre" />
           </div>
           <div class="mb-3">
-            <label for="precio">Apellido</label>
-            <input type="text" name="apellido" id="apellido" v-model="apellido" />
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido" v-model="apellido"/>
           </div>
           <div class="mb-3">
-            <label for="stock">Tiempo</label>
+            <label for="tiempo">Tiempo</label>
             <input type="time" name="tiempo" id="tiempo" v-model="tiempo" />
           </div>
           <div class="mb-3">
-            <label for="imagen">Ciudad</label>
+            <label for="ciudad">Ciudad</label>
             <input type="text" name="ciudad" id="ciudad" v-model="ciudad" />
-            <!-- <img width="100" :src="imagen" alt="" /> -->
           </div>
           <button
             type="button"
@@ -78,6 +77,6 @@
     ></script>
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="js/producto_editar.js"></script>
+    <script src="js/corredor_editar.js"></script>
   </body>
 </html>

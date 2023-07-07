@@ -22,7 +22,7 @@
       <div id="app" class="container">
         <h3><u>Maratón Codo a Codo</u></h3>
         <br />
-        <a class="btn btn-primary" href="registro_nuevo.html">Nuevo</a>
+        <a class="btn btn-primary" href="corredor_nuevo.html">Nuevo</a>
         <br /><br />
         <div v-if="error">
           <p>Lo sentimos , ........</p>
@@ -47,29 +47,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="" v-for="(registro,index) in registros">
+                  <tr class="" v-for="(corredor,index) in corredores">
                     <td>{{index+1}}</td>
-                    <td scope="row">{{registro.id}}</td>
-                    <td>{{registro.nombre}}</td>
-                    <td>{{registro.apellido}}</td>
-                    <td>{{registro.tiempo}}</td>
-                    <td>
-                      <!-- <img
-                        width="60"
-                        :src="producto.imagen"
-                        :alt="producto.nombre"
-                      /> -->
-                    </td>
+                    <td scope="row">{{corredor.id}}</td>
+                    <td>{{corredor.nombre}}</td>
+                    <td>{{corredor.apellido}}</td>
+                    <td>{{corredor.tiempo}}</td>
+                    <td>{{corredor.ciudad}}</td>
                     <td>
                       <a
                         class="btn btn-primary"
-                        :href="'./producto_update.html?id='+ producto.id"
+                        :href="'./corredor_update.html?id='+ corredor.id"
                         >Editar</a
                       >
                       <button
                         type="button"
                         class="btn btn-danger"
-                        v-on:click="eliminar(producto.id)"
+                        v-on:click="eliminar(corredor.id)"
                       >
                         Eliminar
                       </button>
@@ -101,6 +95,6 @@
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!--Link de VUE-->
-    <script src="js/registros.js"></script>
+    <script src="js/corredores.js"></script>
   </body>
 </html>
