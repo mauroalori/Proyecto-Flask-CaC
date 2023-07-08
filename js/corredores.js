@@ -8,6 +8,8 @@ createApp({
       url:'https://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
       error: false,
       cargando: true,
+      filtro: false,
+      filtrar_por: 'Bolivia',
       /*atributos para el guardar los valores del formulario */
       id: 0,
       nombre: "",
@@ -40,6 +42,9 @@ createApp({
         }
         return 0;
       });
+      for (const pos in this.corredores){
+        this.corredores[pos].posicion = parseInt(pos)+1;
+      }
     },
     eliminar(corredor) {
       const url = this.url + "/" + corredor;
@@ -75,6 +80,16 @@ createApp({
           alert("Error al Grabarr");
         });
     },
+  },
+  computed: {
+    corredoresFiltrados() {
+      if (this.filtro) {
+        return this.corredores.filter(corredor => corredor.ciudad === this.filtrar_por);
+      } 
+      else {
+        return this.corredores;
+      }
+    }
   },
   created() {
     this.fetchData(this.url);

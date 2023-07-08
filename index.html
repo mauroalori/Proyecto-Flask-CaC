@@ -33,6 +33,10 @@
             <p>Cargando .....</p>
           </section>
           <section v-else>
+            <div class="form-group">
+              <label for="">Pais</label>
+              <input type="text" class="form-control" v-model="filtrar_por" />
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
@@ -47,8 +51,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="" v-for="(corredor,index) in corredores">
-                    <td>{{index+1}}</td>
+                  <tr
+                    class=""
+                    v-for="corredor in corredoresFiltrados"
+                  >
+                    <td>{{corredor.posicion}}</td>
                     <td scope="row">{{corredor.id}}</td>
                     <td>{{corredor.nombre}}</td>
                     <td>{{corredor.apellido}}</td>
