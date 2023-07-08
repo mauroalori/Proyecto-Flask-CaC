@@ -26,7 +26,14 @@ class Corredor(db.Model):   # la clase Producto hereda de db.Model
         self.tiempo=tiempo
         self.pais=pais
 
-
+class Pais(db.Model):
+    codigo=db.Column(db.String(400), primary_key=True)   #define los campos de la tabla
+    nombre=db.Column(db.String(100))
+    imagen=db.Column(db.String(400))
+    def __init__(self,codigo,nombre,imagen):   #crea el  constructor de la clase
+        self.codigo=codigo
+        self.nombre=nombre
+        self.imagen=imagen
     #  si hay que crear mas tablas , se hace aqui
 
 
@@ -37,10 +44,15 @@ class CorredorSchema(ma.Schema):
     class Meta:
         fields=('id','nombre','apellido','tiempo','pais')
 
+class PaisSchema(ma.Schema):
+    class Meta:
+        fields=('codigo','nombre','imagen')
 
-corredor_schema=CorredorSchema()            # El objeto producto_schema es para traer un producto
-corredores_schema=CorredorSchema(many=True)  # El objeto productos_schema es para traer multiples corredors de producto
+corredor_schema=CorredorSchema()            # El objeto corredor_schema es para traer un corredor
+corredores_schema=CorredorSchema(many=True)  # El objeto corredores_schema es para traer multiples corredores
 
+pais_schema=PaisSchema()            # El objeto pais_schema es para traer un pais
+paises_schema=PaisSchema(many=True)  # El objeto paises_schema es para traer multiples paises
 
 # crea los endpoint o rutas (json)
 @app.route('/corredores',methods=['GET'])
@@ -88,6 +100,47 @@ def update_corredor(id):
     db.session.commit()
     return corredor_schema.jsonify(corredor)
 
+#endpoints para los paises
+@app.route('/paises',methods=['GET'])
+def get_Paises():
+    all_paises=Pais.query.all()         # el metodo query.all() lo hereda de db.Model
+    result=paises_schema.dump(all_paises)  # el metodo dump() lo hereda de ma.schema y
+                                                 # trae todos los paiss de la tabla
+    return jsonify(result)                       # retorna un JSON de todos los paiss de la tabla
+
+@app.route('/paises/<codigo>',methods=['GET'])
+def get_pais(codigo):
+    pais=Pais.query.get(codigo)
+    return pais_schema.jsonify(pais)   # retorna el JSON de un producto recibido como parametro
+
+@app.route('/paises/<codigo>',methods=['DELETE'])
+def delete_paises(codigo):
+    pais=Pais.query.get(codigo)
+    db.session.delete(pais)
+    db.session.commit()
+    return pais_schema.jsonify(pais)   # me devuelve un json con el pais eliminado
+
+@app.route('/paises', methods=['POST']) # crea ruta o endpoint
+def create_pais():
+    #print(request.json)  # request.json contiene el json que envio el cliente
+    codigo=request.json['codigo']
+    nombre=request.json['nombre']
+    imagen=request.json['imagen']
+    new_pais=Pais(codigo,nombre,imagen)
+    db.session.add(new_pais)
+    db.session.commit()
+    return pais_schema.jsonify(new_pais)
+
+@app.route('/paises/<codigo>' ,methods=['PUT'])
+def update_pais(codigo):
+    pais=Pais.query.get(codigo)
+
+    pais.codigo=request.json['codigo']
+    pais.nombre=request.json['nombre']
+    pais.imagen=request.json['imagen']
+
+    db.session.commit()
+    return pais_schema.jsonify(pais)
 
 # programa principal *******************************
 if __name__=='__main__':

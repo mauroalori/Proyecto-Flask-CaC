@@ -10,12 +10,15 @@ createApp({
       apellido: "",
       pais: "",
       tiempo: 0,
-      url: "https://mauroalori.pythonanywhere.com/corredores/" + id,
+      codigo_pais: "",
+      nombre_pais: "",
+      imagen_pais: "",
+      url_corredores: "https://mauroalori.pythonanywhere.com/corredores/" + id,
     };
   },
   methods: {
-    fetchData(url) {
-      fetch(url)
+    fetchData(url_corredores) {
+      fetch(url_corredores)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -24,6 +27,14 @@ createApp({
           this.pais = data.pais;
           this.apellido = data.apellido;
           this.tiempo = data.tiempo;
+          return fetch("https://mauroalori.pythonanywhere.com/paises/" + this.pais);
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.codigo_pais = data.codigo;
+          this.nombre_pais = data.nombre;
+          this.imagen_pais = data.imagen;
         })
         .catch((err) => {
           console.error(err);
@@ -43,7 +54,7 @@ createApp({
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
       };
-      fetch(this.url, options)
+      fetch(this.url_corredores, options)
         .then(function () {
           alert("Registro modificado");
           window.location.href = "index.html";
@@ -55,6 +66,6 @@ createApp({
     },
   },
   created() {
-    this.fetchData(this.url);
+    this.fetchData(this.url_corredores);
   },
 }).mount("#app");

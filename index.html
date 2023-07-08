@@ -55,10 +55,10 @@
                 <thead>
                   <tr>
                     <th scope="col">PUESTO</th>
+                    <th scope="col">PAIS</th>
                     <th scope="col">NOMBRE</th>
                     <th scope="col">APELLIDO</th>
                     <th scope="col">TIEMPO</th>
-                    <th scope="col">PAIS</th>
                     <th scope="col">ACCIONES</th>
                   </tr>
                 </thead>
@@ -68,10 +68,10 @@
                     v-for="corredor in corredoresFiltrados"
                   >
                     <td>{{corredor.posicion}}</td>
+                    <td>{{corredor.pais}}</td>
                     <td>{{corredor.nombre}}</td>
                     <td>{{corredor.apellido}}</td>
                     <td>{{corredor.tiempo}}</td>
-                    <td>{{corredor.pais}}</td>
                     <td>
                       <a
                         class="btn btn-primary"

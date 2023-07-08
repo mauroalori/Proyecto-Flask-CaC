@@ -3,9 +3,11 @@ createApp({
   data() {
     return {
       corredores: [],
+      paises: [],
       //url: "http://localhost:5000/corredores",
       // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
-      url:'https://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
+      url_corredores:'https://mauroalori.pythonanywhere.com/corredores', // si ya lo subieron a pythonanywhere
+      url_paises:'https://mauroalori.pythonanywhere.com/paises', // si ya lo subieron a pythonanywhere
       error: false,
       cargando: true,
       filtro: false,
@@ -19,12 +21,22 @@ createApp({
     };
   },
   methods: {
-    fetchData(url) {
-      fetch(url)
+    fetchData(url_corredores,url_paises) {
+      fetch(url_corredores)
         .then((response) => response.json())
         .then((data) => {
           this.corredores = data;
           this.ordenarCorredoresPorTiempoAsc();
+          this.cargando = false;
+        })
+        .catch((err) => {
+          console.error(err);
+          this.error = true;
+        });
+      fetch(url_paises)
+        .then((response) => response.json())
+        .then((data) => {
+          this.paises = data;
           this.cargando = false;
         })
         .catch((err) => {
@@ -47,7 +59,7 @@ createApp({
       }
     },
     eliminar(corredor) {
-      const url = this.url + "/" + corredor;
+      const url = this.url_corredores + "/" + corredor;
       var options = {
         method: "DELETE",
       };
@@ -70,7 +82,7 @@ createApp({
         headers: { "Content-Type": "application/json" },
         redirect: "follow",
       };
-      fetch(this.url, options)
+      fetch(this.url_corredores, options)
         .then(function () {
           alert("Corredor grabado");
           window.location.href = "index.html";
@@ -92,6 +104,6 @@ createApp({
     }
   },
   created() {
-    this.fetchData(this.url);
+    this.fetchData(this.url_corredores,this.url_paises);
   },
 }).mount("#app");
