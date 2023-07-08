@@ -8,7 +8,7 @@ createApp({
       id: 0,
       nombre: "",
       apellido: "",
-      ciudad: "",
+      pais: "",
       tiempo: 0,
       url: "https://mauroalori.pythonanywhere.com/corredores/" + id,
     };
@@ -21,7 +21,7 @@ createApp({
           console.log(data);
           this.id = data.id;
           this.nombre = data.nombre;
-          this.ciudad = data.ciudad;
+          this.pais = data.pais;
           this.apellido = data.apellido;
           this.tiempo = data.tiempo;
         })
@@ -35,7 +35,7 @@ createApp({
         nombre: this.nombre,
         apellido: this.apellido,
         tiempo: this.tiempo,
-        ciudad: this.ciudad,
+        pais: this.pais,
       };
       var options = {
         body: JSON.stringify(corredor),

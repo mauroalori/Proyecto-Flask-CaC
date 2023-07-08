@@ -14,7 +14,7 @@ createApp({
       id: 0,
       nombre: "",
       apellido: "",
-      ciudad: "",
+      pais: "",
       tiempo: 0,
     };
   },
@@ -62,7 +62,7 @@ createApp({
         nombre: this.nombre,
         apellido: this.apellido,
         tiempo: this.tiempo,
-        ciudad: this.ciudad,
+        pais: this.pais,
       };
       var options = {
         body: JSON.stringify(corredor),
@@ -84,7 +84,7 @@ createApp({
   computed: {
     corredoresFiltrados() {
       if (this.filtro) {
-        return this.corredores.filter(corredor => corredor.ciudad === this.filtrar_por);
+        return this.corredores.filter(corredor => corredor.pais === this.filtrar_por);
       } 
       else {
         return this.corredores;

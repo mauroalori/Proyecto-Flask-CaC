@@ -14,17 +14,17 @@ db= SQLAlchemy(app)   #crea el objeto db de la clase SQLAlquemy
 ma=Marshmallow(app)   #crea el objeto ma de de la clase Marshmallow
 
 # defino la tabla
-class Corredor(db.Model):   # la clase Producto hereda de db.Model    
+class Corredor(db.Model):   # la clase Producto hereda de db.Model
     id=db.Column(db.Integer, primary_key=True)   #define los campos de la tabla
     nombre=db.Column(db.String(100))
     apellido=db.Column(db.String(100))
     tiempo=db.Column(db.Time)
-    ciudad=db.Column(db.String(400))
-    def __init__(self,nombre,apellido,tiempo,ciudad):   #crea el  constructor de la clase
+    pais=db.Column(db.String(400))
+    def __init__(self,nombre,apellido,tiempo,pais):   #crea el  constructor de la clase
         self.nombre=nombre   # no hace falta el id porque lo crea sola mysql por ser auto_incremento
         self.apellido=apellido
         self.tiempo=tiempo
-        self.ciudad=ciudad
+        self.pais=pais
 
 
     #  si hay que crear mas tablas , se hace aqui
@@ -35,7 +35,7 @@ with app.app_context():
 #  ************************************************************
 class CorredorSchema(ma.Schema):
     class Meta:
-        fields=('id','nombre','apellido','tiempo','ciudad')
+        fields=('id','nombre','apellido','tiempo','pais')
 
 
 corredor_schema=CorredorSchema()            # El objeto producto_schema es para traer un producto
@@ -70,8 +70,8 @@ def create_corredor():
     nombre=request.json['nombre']
     apellido=request.json['apellido']
     tiempo=request.json['tiempo']
-    ciudad=request.json['ciudad']
-    new_corredor=Corredor(nombre,apellido,tiempo,ciudad)
+    pais=request.json['pais']
+    new_corredor=Corredor(nombre,apellido,tiempo,pais)
     db.session.add(new_corredor)
     db.session.commit()
     return corredor_schema.jsonify(new_corredor)
@@ -79,16 +79,16 @@ def create_corredor():
 @app.route('/corredores/<id>' ,methods=['PUT'])
 def update_corredor(id):
     corredor=Corredor.query.get(id)
- 
+
     corredor.nombre=request.json['nombre']
     corredor.apellido=request.json['apellido']
     corredor.tiempo=request.json['tiempo']
-    corredor.ciudad=request.json['ciudad']
+    corredor.pais=request.json['pais']
 
     db.session.commit()
     return corredor_schema.jsonify(corredor)
- 
+
 
 # programa principal *******************************
-if __name__=='__main__':  
+if __name__=='__main__':
     app.run(debug=True, port=5000)    # ejecuta el servidor Flask en el puerto 5000
