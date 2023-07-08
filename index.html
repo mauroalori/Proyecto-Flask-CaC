@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <title>Maratón CaC</title>
     <meta charset="utf-8" />
@@ -13,8 +13,10 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link rel="icon" href="imagen/th (2).ico">
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+    <body background="imagen/martins-zemlickis-NPFu4GfFZ7E-unsplash.jpg">
     <header id="header">
       <!-- place navbar here -->
     </header>
@@ -31,25 +33,34 @@
           <section v-if="cargando">
             <div class="spinner-border"></div>
             <p>Cargando .....</p>
+            <!-- <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div> -->
           </section>
           <section v-else>
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <!-- <table class="table table-bordered"> -->
+              <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Orden de llegada</th>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Tiempo</th>
-                    <th scope="col">Ciudad</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">PUESTO</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDO</th>
+                    <th scope="col">TIEMPO</th>
+                    <th scope="col">PAIS</th>
+                    <th scope="col">ACCIONES</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="" v-for="(corredor,index) in corredores">
                     <td>{{index+1}}</td>
-                    <td scope="row">{{corredor.id}}</td>
                     <td>{{corredor.nombre}}</td>
                     <td>{{corredor.apellido}}</td>
                     <td>{{corredor.tiempo}}</td>

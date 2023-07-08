@@ -1,0 +1,11 @@
+.container{
+    background-color: rgba(236, 245, 245, 0.741) ;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+main{
+    margin-top: 3em;
+}
+thead{
+    background-color: rgba(243, 247, 247, 0.883);
+}
