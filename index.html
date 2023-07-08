@@ -68,7 +68,7 @@
                     v-for="corredor in corredoresFiltrados"
                   >
                     <td>{{corredor.posicion}}</td>
-                    <td>{{corredor.pais}}</td>
+                    <td><img :src="imagenPais(corredor.pais)" alt="">{{corredor.pais}}</td>
                     <td>{{corredor.nombre}}</td>
                     <td>{{corredor.apellido}}</td>
                     <td>{{corredor.tiempo}}</td>

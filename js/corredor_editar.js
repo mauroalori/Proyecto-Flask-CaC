@@ -5,6 +5,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      paises: [],
       id: 0,
       nombre: "",
       apellido: "",
@@ -35,6 +36,15 @@ createApp({
           this.codigo_pais = data.codigo;
           this.nombre_pais = data.nombre;
           this.imagen_pais = data.imagen;
+        })
+        .catch((err) => {
+          console.error(err);
+          this.error = true;
+        });
+      fetch("https://mauroalori.pythonanywhere.com/paises")
+        .then((response) => response.json())
+        .then((data) => {
+          this.paises = data;
         })
         .catch((err) => {
           console.error(err);

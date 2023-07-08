@@ -92,6 +92,9 @@ createApp({
           alert("Error al Grabarr");
         });
     },
+    imagenPais(codigo){
+      return this.paises.find(pais => pais.codigo === codigo).imagen;
+    },
   },
   computed: {
     corredoresFiltrados() {
