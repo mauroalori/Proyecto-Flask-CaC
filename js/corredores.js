@@ -10,8 +10,7 @@ createApp({
       url_paises:'https://mauroalori.pythonanywhere.com/paises', // si ya lo subieron a pythonanywhere
       error: false,
       cargando: true,
-      filtro: false,
-      filtrar_por: 'Bolivia',
+      filtrar_por: 'no-filtrar',
       /*atributos para el guardar los valores del formulario */
       id: 0,
       nombre: "",
@@ -98,7 +97,7 @@ createApp({
   },
   computed: {
     corredoresFiltrados() {
-      if (this.filtro) {
+      if (this.filtrar_por!="no-filtrar") {
         return this.corredores.filter(corredor => corredor.pais === this.filtrar_por);
       } 
       else {

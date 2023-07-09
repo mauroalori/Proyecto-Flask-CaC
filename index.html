@@ -55,18 +55,9 @@
         </div> -->
         
         <label for="">Filtro por Pais:   </label>
-        <select name="Filtro" Class="filtro">Filtro Pais:
-          <option value="TOD">Todos</option>
-          <option value="ARG">ARG</option>
-          <option value="BRA">URU</option>
-          <option value="BRA">CHI</option>
-          <option value="BRA">BRA</option>
-          <option value="BRA">ECU</option>
-          <option value="BRA">PAR</option>
-          <option value="BRA">BOL</option>
-          <option value="BRA">COL</option>
-          <option value="BRA">PER</option>
-          <option value="BRA">VEN</option>
+        <select name="Filtro" Class="filtro" v-model="filtrar_por">Filtro Pais:
+          <option value="no-filtrar">Todos</option>
+          <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
          </select>
         
 
