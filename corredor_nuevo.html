@@ -51,7 +51,9 @@
           <div class="mb-3">
             <label for="pais">Pais</label>
             <br>
-            <input type="text" name="pais" id="pais" v-model="pais" />
+            <select name="select-paises" class="select-paises" v-model="pais">
+              <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
+            </select>
           </div>
 
           <button type="button" class="btn btn-success" v-on:click="grabar()">
