@@ -33,18 +33,43 @@
           <section v-if="cargando">
             <div class="spinner-border"></div>
             <p>Cargando .....</p>
-            <!-- <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div> -->
           </section>
           <section v-else>
+
+<!-- 
+        <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Filtro Pais
+        </button>
+          <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">ARG</a></li>
+          <li><a class="dropdown-item" href="#">URU</a></li>
+          <li><a class="dropdown-item" href="#">CHI</a></li>
+          <li><a class="dropdown-item" href="#">BRA</a></li>
+          <li><a class="dropdown-item" href="#">ECU</a></li>
+          <li><a class="dropdown-item" href="#">PAR</a></li>
+          <li><a class="dropdown-item" href="#">BOL</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">TOD</a></li>
+        </ul>
+        </div> -->
+        
+        <label for="">Filtro por Pais:   </label>
+        <select name="Filtro" Class="filtro">Filtro Pais:
+          <option value="TOD">Todos</option>
+          <option value="ARG">ARG</option>
+          <option value="BRA">URU</option>
+          <option value="BRA">CHI</option>
+          <option value="BRA">BRA</option>
+          <option value="BRA">ECU</option>
+          <option value="BRA">PAR</option>
+          <option value="BRA">BOL</option>
+          <option value="BRA">COL</option>
+          <option value="BRA">PER</option>
+          <option value="BRA">VEN</option>
+         </select>
+        
+
             <div class="form-group">
               <label for="">Pais</label>
               <input type="text" class="form-control" v-model="filtrar_por" />
@@ -91,7 +116,6 @@
               </table>
             </div>
           </section>
-        </div>
       </div>
     </main>
     <footer>

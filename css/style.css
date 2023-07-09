@@ -1,5 +1,5 @@
 .container{
-    background-color: rgba(236, 245, 245, 0.741) ;
+    background-color: rgba(236, 245, 245, 0.815) ;
     border-radius: 10px;
     font-weight: bolder;
 }
@@ -8,4 +8,15 @@ main{
 }
 thead{
     background-color: rgba(243, 247, 247, 0.883);
+}
+form{
+    text-align: right;
+}
+.filtro{
+    background-color: rgba(7, 104, 3, 0.883);
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
 }

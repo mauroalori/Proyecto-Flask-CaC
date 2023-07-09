@@ -14,6 +14,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link rel="icon" href="imagen/th (2).ico">
   </head>
   <body background="imagen/martins-zemlickis-NPFu4GfFZ7E-unsplash.jpg">
     <header id="header">
@@ -25,30 +26,30 @@
           style="
             background-color: aliceblue;
             margin: 10px auto;
-            width: 400px;
+            width: 350px;
             padding: 20px;
+            border-radius: 20px;
           "
         >
           <h2>Editar Corredor</h2>
-          <!-- <p>Apellido:{{apellido}}</p> -->
-          <div class="mb-3">
-            <label for="id">Id</label>
-            <input type="number" name="id" id="id" disabled v-model="id" />
-          </div>
           <div class="mb-3">
             <label for="nombre">Nombre</label>
+            <br>
             <input type="text" name="nombre" id="nombre" v-model="nombre" />
           </div>
           <div class="mb-3">
             <label for="apellido">Apellido</label>
+            <br>
             <input type="text" name="apellido" id="apellido" v-model="apellido"/>
           </div>
           <div class="mb-3">
             <label for="tiempo">Tiempo</label>
+            <br>
             <input type="time" name="tiempo" id="tiempo" step="1" v-model="tiempo" />
           </div>
           <div class="mb-3">
             <label for="pais">Pais</label>
+            <br>
             <input type="text" name="pais" id="pais" v-model="pais" />
           </div>
           <button
