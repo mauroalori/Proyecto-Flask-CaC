@@ -47,12 +47,14 @@
             <br>
             <input type="time" name="tiempo" id="tiempo" step="1" v-model="tiempo" />
           </div>
-          <div class="mb-3">
-            <label for="pais">Pais</label>
-            <br>
-            <select name="select-paises" class="select-paises" v-model="pais">
-              <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
-            </select>
+          <div class="mb-3 row">
+            <div class="col-6">
+              <label for="pais">Pais</label>
+              <br>
+              <select name="select-paises" class="form-select select-paises" v-model="pais">
+                <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
+              </select>
+            </div>
           </div>
           <button
             type="button"

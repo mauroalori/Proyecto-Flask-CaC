@@ -6,6 +6,10 @@
 main{
     margin-top: 3em;
 }
+.titulo{
+    text-align: center;
+    font-weight: 600;
+}
 thead{
     background-color: rgba(243, 247, 247, 0.883);
 }

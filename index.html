@@ -22,7 +22,7 @@
     </header>
     <main>
       <div id="app" class="container">
-        <h3><u>Maratón Codo a Codo</u></h3>
+        <h1 class="titulo">Maratón Codo a Codo</h1>
         
         <br />
         <div v-if="error">
@@ -53,17 +53,16 @@
         </ul>
         </div> -->
         
-        <label for="">Filtro por Pais:   </label>
-        <select name="Filtro" Class="filtro" v-model="filtrar_por">Filtro Pais:
-          <option value="no-filtrar">Todos</option>
-          <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
-        </select>
-        
-
-            <div class="form-group">
-              <label for="">Pais</label>
-              <input type="text" class="form-control" v-model="filtrar_por" />
-            </div>
+        <div class="row">
+          <div class="col-3">
+            <label for="">Filtro por Pais:   </label>
+            <select name="Filtro" class="form-select col-3 filtro" v-model="filtrar_por">Filtro Pais:
+              <option value="no-filtrar">Todos</option>
+              <option :value="pais.codigo" v-for="pais in paises">{{pais.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
             <div class="table-responsive">
               <!-- <table class="table table-bordered"> -->
               <table class="table table-striped">
@@ -74,7 +73,7 @@
                     <th scope="col">NOMBRE</th>
                     <th scope="col">APELLIDO</th>
                     <th scope="col">TIEMPO</th>
-                    <th scope="col" class=""><a class="btn btn-success boton-accion" href="corredor_nuevo.html"><img src="imagen/usuario-agregar.png" alt="Agregar corredor" class="iconos-flaticon"></a></th>
+                    <th scope="col" class=""><a class="btn btn-success green boton-accion" href="corredor_nuevo.html"><img src="imagen/usuario-agregar.png" alt="Agregar corredor" class="iconos-flaticon"></a></th>
                   </tr>
                 </thead>
                 <tbody class="align-middle">
