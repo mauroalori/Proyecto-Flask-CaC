@@ -23,9 +23,8 @@
     <main>
       <div id="app" class="container">
         <h3><u>Maratón Codo a Codo</u></h3>
+        
         <br />
-        <a class="btn btn-primary" href="corredor_nuevo.html">Nuevo</a>
-        <br /><br />
         <div v-if="error">
           <p>Lo sentimos , ........</p>
         </div>
@@ -68,17 +67,17 @@
             <div class="table-responsive">
               <!-- <table class="table table-bordered"> -->
               <table class="table table-striped">
-                <thead>
+                <thead class="align-middle">
                   <tr>
                     <th scope="col">PUESTO</th>
                     <th scope="col">PAIS</th>
                     <th scope="col">NOMBRE</th>
                     <th scope="col">APELLIDO</th>
                     <th scope="col">TIEMPO</th>
-                    <th scope="col">ACCIONES</th>
+                    <th scope="col" class=""><a class="btn btn-success boton-accion" href="corredor_nuevo.html"><img src="imagen/usuario-agregar.png" alt="Agregar corredor" class="iconos-flaticon"></a></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
                   <tr
                     class=""
                     v-for="corredor in corredoresFiltrados"
@@ -90,16 +89,16 @@
                     <td>{{corredor.tiempo}}</td>
                     <td>
                       <a
-                        class="btn btn-primary"
+                        class="btn btn-primary boton-accion"
                         :href="'./corredor_update.html?id='+ corredor.id"
-                        >Editar</a
+                        ><img src="imagen/usuario-editar.png" alt="Editar corredor" class="iconos-flaticon"></a
                       >
                       <button
                         type="button"
-                        class="btn btn-danger"
+                        class="btn btn-danger boton-accion"
                         v-on:click="eliminar(corredor.id)"
                       >
-                        Eliminar
+                      <img src="imagen/usuario-eliminar.png" alt="Eliminar corredor" class="iconos-flaticon">
                       </button>
                     </td>
                   </tr>
