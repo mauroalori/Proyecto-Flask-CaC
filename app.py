@@ -19,7 +19,7 @@ class Corredor(db.Model):   # la clase Producto hereda de db.Model
     nombre=db.Column(db.String(100))
     apellido=db.Column(db.String(100))
     tiempo=db.Column(db.Time)
-    pais=db.Column(db.String(400))
+    pais=db.Column(db.String(400),db.ForeignKey('pais.codigo'))
     def __init__(self,nombre,apellido,tiempo,pais):   #crea el  constructor de la clase
         self.nombre=nombre   # no hace falta el id porque lo crea sola mysql por ser auto_incremento
         self.apellido=apellido
